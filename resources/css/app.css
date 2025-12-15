@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* кастомний скролбар */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: #f4f1ea;
+}
+::-webkit-scrollbar-thumb {
+    background: #0a0a0a;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #c2410c;
+}
+
+/* прихований скролбар */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* колір виділення */
+::selection {
+    background-color: #c2410c;
+    color: #f4f1ea;
+}
