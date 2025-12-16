@@ -1,72 +1,86 @@
-Встановлення проєкту на новий комп’ютер (Laragon)
-1. Клонувати або розпакувати проєкт
+# Women Fashion
 
-Скопіюйте папку проєкту у директорію:
+Проєкт **Women Fashion** — інтернет-каталог та адмін-панель на **Laravel**, для управління товарами, категоріями та мудбордами.
 
-C:\laragon\www\
+Репозиторій: https://github.com/ilonakogutanic39-tech/women-fashion
 
+## Коротко
 
-Наприклад:
+Цей проєкт містить:
+- CRUD для товарів та категорій
+- Модель `Moodboard` та зв'язки з товарами
+- Адмін-панель для менеджменту контенту
+- Авторизацію (Laravel Breeze)
 
-C:\laragon\www\women-fashion
+## Вимоги
 
-2. Встановити залежності
-2.1. Встановити PHP-пакети
+- PHP 8.1+ (перевірте `composer.json`)
+- Composer
+- Node.js & npm
+- MySQL (Laragon рекомендується на Windows)
 
-У папці проєкту виконати:
+## Інструкція встановлення (Laragon)
 
+1. Скопіюйте папку проекту в `C:\laragon\www\women-fashion`
+
+2. Встановіть PHP-пакети:
+
+```bash
 composer install
+```
 
-2.2. Встановити JavaScript залежності
+3. Встановіть JS-пакети та зберіть assets:
 
-(якщо Tailwind / npm використовується)
-
+```bash
 npm install
-npm run build
+npm run dev     # для розробки
+npm run build   # production
+```
 
-3. Створити .env файл
+4. Створіть `.env` з прикладу і налаштуйте БД:
 
-Скопіювати приклад:
-
+```bash
 cp .env.example .env
+# або скопіюйте вручну .env.example → .env
+```
 
-4. Налаштувати базу даних у Laragon
-4.1. Створити нову базу
+У `.env` вкажіть:
 
-Відкрити:
-
-Menu → MySQL → Create new database
-
-Назва наприклад:
-
-women_fashion
-
-4.2. Вказати дані у .env
+```
 DB_DATABASE=women_fashion
 DB_USERNAME=root
 DB_PASSWORD=
+APP_URL=http://localhost
+```
 
+5. Застосуйте міграції та (за потреби) сидери:
 
-(за замовчуванням у Laragon пароль порожній)
-
-5. Згенерувати ключ застосунку
+```bash
 php artisan key:generate
-
-6. Виконати міграції
 php artisan migrate
-
-7. Створити символічне посилання на storage
+php artisan db:seed
 php artisan storage:link
+```
 
-8. Запустити сервер (якщо потрібно не через Laragon)
-php artisan serve
+6. Запустіть сервер:
 
+```bash
+php artisan serve --host=127.0.0.1 --port=8000
+```
 
-Зазвичай Laragon автоматично піднімає сайт за адресою:
+Відкрийте `http://127.0.0.1:8000` або ваш локальний домен Laragon.
 
-http://women-fashion.test
+## Запуск тестів
 
+```bash
+php artisan test
+```
 
-або
+## Додатково
 
-http://localhost/women-fashion/public
+- Права на запис: переконайтесь, що папки `storage/` та `bootstrap/cache/` доступні для запису.
+- Якщо будете розгортати на продакшн — згенеруйте оптимізовані автозавантаження та зберіть фронтенд для production.
+
+## Автор
+
+ilonakogutanic39-tech — https://github.com/ilonakogutanic39-tech
