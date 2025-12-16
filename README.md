@@ -84,3 +84,55 @@ php artisan test
 ## Автор
 
 ilonakogutanic39-tech — https://github.com/ilonakogutanic39-tech
+
+## Структура проєкту
+
+Орієнтовна файлово-папкова структура проєкту:
+
+```
+women-fashion/
+├── app/
+│   ├── Console/
+│   ├── Exceptions/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── Auth/
+│   │   │   ├── Admin/ (адмінські контролери)
+│   │   │   ├── CategoryController.php
+│   │   │   ├── ProductController.php
+│   │   │   └── MoodboardController.php
+│   │   ├── Middleware/
+│   │   └── Requests/
+│   ├── Models/
+│   │   ├── User.php
+│   │   ├── Product.php
+│   │   ├── Category.php
+│   │   └── Moodboard.php
+│   └── Providers/
+├── bootstrap/
+├── config/
+├── database/
+│   ├── migrations/
+│   └── seeders/
+├── public/
+│   ├── assets/
+│   └── index.php
+├── resources/
+│   ├── css/
+│   ├── js/
+│   └── views/
+│       ├── auth/
+│       ├── admin/
+│       ├── categories/
+│       ├── products/
+│       └── moodboards/
+├── routes/
+│   ├── web.php
+│   └── api.php
+├── storage/
+├── tests/
+├── .env.example
+├── composer.json
+├── package.json
+└── README.md
+```
